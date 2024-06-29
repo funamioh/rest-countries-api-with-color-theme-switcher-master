@@ -1,0 +1,51 @@
+body {
+  background-color: rgb(29, 28, 37);
+}
+
+.container {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  background: rgb(44, 43, 48);
+}
+
+input[type="text"] {
+  -webkit-appearance: none; /* Safari, Chromeのデフォルトスタイルをリセット */
+  -moz-appearance: none; /* Firefoxのデフォルトスタイルをリセット */
+  appearance: none; /* 他のブラウザのデフォルトスタイルをリセット */
+  border: none; /* ボーダーを削除 */
+  outline: none; /* フォーカス時のアウトラインを削除 */
+  background-color: transparent; /* 背景色を透明に */
+  padding: 5px 10px; /* 余白を設定 */
+  box-sizing: border-box; /* パディングを含めた幅計算 */
+  font-size: 1em; /* フォントサイズを設定 */
+  color: inherit; /* 親要素の色を継承 */
+  margin: 20px;
+}
+
+.search-container {
+  background: rgb(44, 43, 48);
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.countries-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.country-detail {
+  padding: 20px;
+  color: white;
+  background-color: rgb(44, 43, 48);
+}
