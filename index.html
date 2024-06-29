@@ -10,7 +10,7 @@
 </head>
 <body>
   <nav>
-    <div class="container">
+    <div class="top-bar">
     <p>Where in the world?</p>
     <p>Dark Mode</p>
   </div>
@@ -19,7 +19,7 @@
   <div class="search-container">
     <div class="search-bar">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="text" placeholder="Search for a country...">
+  <input oninput="searchByWord()" id="search-by-name" type="text" placeholder="Search for a country...">
 </div>
 
 <div class="dropdown">
