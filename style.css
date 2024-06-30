@@ -50,6 +50,10 @@ button {
   display: none;
 }
 
+.region {
+  color: white;
+}
+
 .show {
   display: block;
 }
@@ -65,4 +69,8 @@ button {
   padding: 20px;
   color: white;
   background-color: rgb(44, 43, 48);
+}
+
+.flex-container {
+  display: flex;
 }
