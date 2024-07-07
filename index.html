@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,19 +11,22 @@
 <body>
   <nav>
     <div class="top-bar">
+      <div class="nav-contents">
     <p>Where in the world?</p>
-    <p>Dark Mode</p>
+    <button type="button" id="theme-toggle-button" data-theme-toggle aria-label="Dark Mode"><i id="theme-toggle-icon" class="fa-solid fa-moon"></i> Dark Mode</p></button>
+  </div>
   </div>
   </nav>
 
-  <div class="search-container">
+  <div class="page-container">
+  <div class="second-container">
     <div class="search-bar">
   <i class="fa-solid fa-magnifying-glass"></i>
-  <input oninput="searchByWord()" id="search-by-name" type="text" placeholder="Search for a country...">
+  <input class="magnifier" oninput="searchByWord()" id="search-by-name" type="text" placeholder="Search for a country...">
 </div>
 
 <div class="dropdown">
-  <button onclick="dropdown()">Filter by Region</button>
+  <button class="filter-box" onclick="dropdown()">Filter by Region <i class="fa-solid fa-chevron-down"></i></button>
   <div id="dropdown" class="dropdown-content">
     <div onclick="searchByRegion('Africa')" class="region">Africa</div>
     <div onclick="searchByRegion('America')" class="region">America</div>
@@ -44,7 +47,11 @@
   <p>Capital</p>
 </div> -->
 </div>
+</div>
+
+<p class="footer">This page is coded by <a href="https://github.com/funamioh" target="_blank">Miho Funayama</a></p>
 
 <script src="script.js"></script>
+<script src="themeChange.js"></script>
 </body>
 </html>
