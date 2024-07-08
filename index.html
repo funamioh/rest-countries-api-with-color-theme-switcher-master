@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frontend Mentor Challenge | Where in the world?</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/c8ce4fa207.js" crossorigin="anonymous"></script>
+  <title>Frontend Mentor Challenge | Where in the world?</title>
 
 </head>
 <body>
   <nav>
     <div class="top-bar">
       <div class="nav-contents">
-    <p>Where in the world?</p>
-    <button type="button" id="theme-toggle-button" data-theme-toggle aria-label="Dark Mode"><i id="theme-toggle-icon" class="fa-solid fa-moon"></i> Dark Mode</p></button>
+    <p class="title">Where in the world?</p>
+    <div class="btn-container">
+      <!-- 今ボタン内のテキストをクリックしないといけない。アイコンでも反応するようにwrap必要 -->
+    <i id="theme-toggle-icon" class="fa-solid fa-moon toggle-icon"></i>
+    <button type="button" id="theme-toggle-button" data-theme-toggle aria-label="Dark Mode">
+      <!-- なぜかアイコン下記の位置だと表示されない -->
+      <!-- <i id="theme-toggle-icon" class="fa-solid fa-moon"></i> -->
+       Dark Mode
+    </button>
+  </div>
   </div>
   </div>
   </nav>

@@ -21,21 +21,28 @@ function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark })
 */
 function updateButton({ buttonEl, isDark }) {
   // change icon as well
-  const newCta = isDark ? "Light Mode" : "Dark Mode";
+  const newCta = isDark ? "Dark Mode" : "Light Mode";
   const buttonIconClass = isDark ? "fa-solid fa-moon" : "fa-solid fa-sun"
   // use an aria-label if you are omitting text on the button
   // and using a sun/moon icon, for example
   buttonEl.setAttribute("aria-label", newCta);
   buttonEl.innerText = newCta;
 
-  const buttonIcon = buttonEl.querySelector('i');
-  buttonIcon.className = buttonIconClass;
+  // update icon
+  // const buttonIcon = buttonEl.querySelector('i')
+  const buttonIcon = document.getElementById('theme-toggle-icon')
+  if (buttonIcon) {
+    buttonIcon.className = buttonIconClass;
+  }
+  // const buttonIcon = buttonEl.querySelector('i');
+  // buttonIcon.className = buttonIconClass;
 }
 
 /**
 * Utility function to update the theme setting on the html tag
 */
 function updateThemeOnHtmlEl({ theme }) {
+  console.log('Updating theme on HTML element:', theme);
   document.querySelector("html").setAttribute("data-theme", theme);
 }
 
@@ -74,4 +81,5 @@ button.addEventListener("click", (event) => {
   updateThemeOnHtmlEl({ theme: newTheme });
 
   currentThemeSetting = newTheme;
+  console.log(newTheme);
 });
