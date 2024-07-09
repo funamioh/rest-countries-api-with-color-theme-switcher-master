@@ -150,22 +150,31 @@ function displayCountryDetail(country) {
 
   const languages = Object.values(country.languages).join(", ");
 
-  const borderCountries = Object.values(country.borders).join(", ");
+  const borderCountries = Object.values(country.borders)
+  .map(border => `<span class="border-country">${border}</span>`)
+  .join(" ");
 
   countryDetailContainer.innerHTML = `
         <div class="flex-container">
         <img src=${country.flags.png} alt="flag-img">
-        <div class="country-detail">
-        <p>${country.name.common}</p>
-        <p>Native Name: ${nativeNames}</p>
-        <p>Population: ${country.population}</p>
-        <p>Region: ${country.region}</p>
-        <p>Sub Region: ${country.subregion}</p>
-        <p>Capital: ${country.capital}</p>
 
-        <p>Top Level Domain: ${country.subregion}</p>
-        <p>Currencies: ${currencies}</p>
-        <p>Languages: ${languages}</p>
+        <div class="detail-container">
+        <p class="country-name">${country.name.common}</p>
+        <div class="right-left-flex">
+        <div class="detail left">
+        <p class="item-name">Native Name: <span>${nativeNames}</span></p>
+        <p class="item-name">Population: <span>${country.population}</span></p>
+        <p class="item-name">Region: <span>${country.region}</span></p>
+        <p class="item-name">Sub Region: <span>${country.subregion}</span></p>
+        <p class="item-name">Capital: <span>${country.capital}</span></p>
+        </div>
+
+        <div class="detail right">
+        <p class="item-name">Top Level Domain: <span>${country.subregion}</span></p>
+        <p class="item-name">Currencies: <span>${currencies}</span></p>
+        <p class="item-name">Languages: <span>${languages}</span></p>
+        </div>
+        </div>
 
         <p>Border Countries: ${borderCountries}</p>
         </div>

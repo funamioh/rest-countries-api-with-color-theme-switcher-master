@@ -107,12 +107,13 @@ button {
 
 .search-bar, .dropdown, .country-detail {
   padding: 20px;
+  border-radius: 3px;
 }
 
 .second-container {
   display: flex;
   justify-content: space-between;
-  margin: 20px;
+  margin: 2rem;
 }
 
 .fa-magnifying-glass {
@@ -154,5 +155,10 @@ button {
 .footer {
   margin-top: 60px;
   text-align: center;
+  color: var(--secondary-color);
+}
+
+a {
+  text-decoration: none;
   color: var(--secondary-color);
 }

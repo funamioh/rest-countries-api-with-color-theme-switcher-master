@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/country-detail.css">
+  <script src="https://kit.fontawesome.com/c8ce4fa207.js" crossorigin="anonymous"></script>
   <title>Country Detail</title>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav>
     <div class="top-bar">
       <div class="nav-contents">
-    <p>Where in the world?</p>
-    <p><i class="fa-solid fa-moon"></i> Dark Mode</p>
+    <p class="title">Where in the world?</p>
+    <div class="btn-container">
+    <i id="theme-toggle-icon" class="fa-solid fa-moon toggle-icon"></i>
+    <button type="button" id="theme-toggle-button" aria-label="Dark Mode">
+       Dark Mode
+    </button>
+  </div>
   </div>
   </div>
   </nav>
   <div class="page-container">
-  <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back</a>
+    <div class="back-btn">
+  <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back</a></div>
   <div id="country-detail-container">
 
   </div>
 </div>
   <script src="script.js"></script>
+  <script src="themeChange.js"></script>
 </body>
 </html>
