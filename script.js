@@ -109,23 +109,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-function getNativeNames(country) {
-  const nativeNames = country.nativeName;
-  const keys = Object.keys(nativeNames);
+// function getNativeNames(country) {
+//   const nativeNames = country.nativeName;
+//   const keys = Object.keys(nativeNames);
 
-  // single key
-  if (keys.length === 1) {
-      const key = keys[0];
-      return nativeNames[key];
-  }
+//   // single key
+//   if (keys.length === 1) {
+//       const key = keys[0];
+//       return nativeNames[key];
+//   }
 
-  // multiple key
-  const result = {};
-  keys.forEach(key => {
-      result[key] = nativeNames[key];
-  });
-  return result;
-}
+//   // multiple key
+//   const result = {};
+//   keys.forEach(key => {
+//       result[key] = nativeNames[key];
+//   });
+//   return result;
+// }
 
 function displayCountryDetail(country) {
   console.log("Hello");
@@ -138,11 +138,11 @@ function displayCountryDetail(country) {
   //     const nativeNames = Object.values(country.name.nativeName)
   // .map(n => n.official)
   // .join(', ');
-  // const nativeNames = Object.keys(country.name.nativeName)
-  // .map(key => country.name.nativeName[key].official)
-  // .join(', ')
+  const nativeNames = Object.keys(country.name.nativeName)
+  .map(key => country.name.nativeName[key].official)
+  .join(', ')
 
-  const nativeNames = getNativeNames(country);
+  // const nativeNames = getNativeNames(country);
 
   const currencies = Object.keys(country.currencies).map(
     (key) => country.currencies[key].name

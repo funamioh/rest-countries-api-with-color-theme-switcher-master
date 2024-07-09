@@ -1,85 +1,19 @@
-/**
-* Utility function to calculate the current theme setting.
-* Look for a local storage value.
-* Fall back to system setting.
-* Fall back to light mode.
-*/
-function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark }) {
-  if (localStorageTheme !== null) {
-    return localStorageTheme;
+const toggle = document.querySelector('.btn-container')
+const btnText = document.getElementById('theme-toggle-button')
+const toggleIcon = document.getElementById('theme-toggle-icon')
+
+toggle.addEventListener('click', () => {
+  const html = document.querySelector('html')
+  if (html.classList.contains('dark')) {
+    html.classList.remove('dark')
+    console.log("remoce dark");
+    btnText.innerHTML = 'Light mode'
+    toggleIcon.classList.remove('fa-moon')
+    toggleIcon.classList.add('fa-sun')
+  } else {
+    html.classList.add('dark')
+    btnText.innerHTML = 'Dark mode'
+    toggleIcon.classList.remove('fa-sun')
+    toggleIcon.classList.add('fa-moon')
   }
-
-  if (systemSettingDark.matches) {
-    return "dark";
-  }
-
-  return "light";
-}
-
-/**
-* Utility function to update the button text and aria-label.
-*/
-function updateButton({ buttonEl, isDark }) {
-  // change icon as well
-  const newCta = isDark ? "Dark Mode" : "Light Mode";
-  const buttonIconClass = isDark ? "fa-solid fa-moon" : "fa-solid fa-sun"
-  // use an aria-label if you are omitting text on the button
-  // and using a sun/moon icon, for example
-  buttonEl.setAttribute("aria-label", newCta);
-  buttonEl.innerText = newCta;
-
-  // update icon
-  // const buttonIcon = buttonEl.querySelector('i')
-  const buttonIcon = document.getElementById('theme-toggle-icon')
-  if (buttonIcon) {
-    buttonIcon.className = buttonIconClass;
-  }
-  // const buttonIcon = buttonEl.querySelector('i');
-  // buttonIcon.className = buttonIconClass;
-}
-
-/**
-* Utility function to update the theme setting on the html tag
-*/
-function updateThemeOnHtmlEl({ theme }) {
-  console.log('Updating theme on HTML element:', theme);
-  document.querySelector("html").setAttribute("data-theme", theme);
-}
-
-
-/**
-* On page load:
-*/
-
-/**
-* 1. Grab what we need from the DOM and system settings on page load
-*/
-const button = document.querySelector("[data-theme-toggle]");
-const buttonIcon = document.querySelector("[data-theme-toggle]");
-const localStorageTheme = localStorage.getItem("theme");
-const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-/**
-* 2. Work out the current site settings
-*/
-let currentThemeSetting = calculateSettingAsThemeString({ localStorageTheme, systemSettingDark });
-
-/**
-* 3. Update the theme setting and button text accoridng to current settings
-*/
-updateButton({ buttonEl: button, isDark: currentThemeSetting === "dark" });
-updateThemeOnHtmlEl({ theme: currentThemeSetting });
-
-/**
-* 4. Add an event listener to toggle the theme
-*/
-button.addEventListener("click", (event) => {
-  const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
-
-  localStorage.setItem("theme", newTheme);
-  updateButton({ buttonEl: button, isDark: newTheme === "dark" });
-  updateThemeOnHtmlEl({ theme: newTheme });
-
-  currentThemeSetting = newTheme;
-  console.log(newTheme);
-});
+})
